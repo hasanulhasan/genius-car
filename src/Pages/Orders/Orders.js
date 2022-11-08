@@ -12,6 +12,24 @@ const Orders = () => {
       .then(data => setOrders(data))
   }, [user?.email])
 
+  const handleDelete = id => {
+    const proceed = window.confirm('are you sure to delete this item');
+    if (proceed) {
+      fetch(`http://localhost:5000/orders/${id}`, {
+        method: 'DELETE'
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if (data.deletedCount > 0) {
+            alert('Data deleted successfully')
+            const remaining = orders.filter(odr => odr._id !== id);
+            setOrders(remaining);
+          }
+        })
+    }
+  }
+
   return (
     <div>
       <h1 className='text-5xl my-6 text-center'>you have {orders.length} order</h1>
@@ -31,6 +49,7 @@ const Orders = () => {
               orders.map(order => <OrderRow
                 key={order._id}
                 order={order}
+                handleDelete={handleDelete}
               ></OrderRow>)
             }
           </tbody>
