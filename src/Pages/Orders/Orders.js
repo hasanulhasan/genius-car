@@ -4,8 +4,7 @@ import OrderRow from './OrderRow';
 
 const Orders = () => {
   const { user } = useContext(AuthContext);
-  const [orders, setOrders] = useState({});
-  // console.log(user);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/orders?email=${user?.email}`)
@@ -20,6 +19,7 @@ const Orders = () => {
         <table className="table w-full">
           <thead>
             <tr>
+              <th>Delete</th>
               <th>Name</th>
               <th>Service Info</th>
               <th>Favorite Color</th>
@@ -36,12 +36,14 @@ const Orders = () => {
           </tbody>
           <tfoot>
             <tr>
+              <th>Delete</th>
               <th>Name</th>
               <th>Service Info</th>
               <th>Favorite Color</th>
               <th>Your Comment</th>
             </tr>
           </tfoot>
+
         </table>
       </div>
     </div>
