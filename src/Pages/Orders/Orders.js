@@ -32,6 +32,27 @@ const Orders = () => {
     }
   }
 
+  const handleEdit = (id) => {
+    fetch(`http://localhost:5000/orders/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application.json'
+      },
+      body: JSON.stringify({ status: 'Approved' })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          const remaining = orders.filter(odr => odr._id !== id)
+          const approving = orders.find(odr => odr._id === id)
+          approving.status = 'Approved'
+          const newOrders = [...remaining, approving];
+          setOrders(newOrders);
+        }
+      })
+  }
+
   return (
     <div>
       <h1 className='text-5xl my-6 text-center'>you have {orders.length} order</h1>
@@ -42,7 +63,7 @@ const Orders = () => {
               <th>Delete</th>
               <th>Name</th>
               <th>Service Info</th>
-              <th>Favorite Color</th>
+              <th>Edit</th>
               <th>Your Comment</th>
             </tr>
           </thead>
@@ -52,6 +73,7 @@ const Orders = () => {
                 key={order._id}
                 order={order}
                 handleDelete={handleDelete}
+                handleEdit={handleEdit}
               ></OrderRow>)
             }
           </tbody>
@@ -60,7 +82,7 @@ const Orders = () => {
               <th>Delete</th>
               <th>Name</th>
               <th>Service Info</th>
-              <th>Favorite Color</th>
+              <th>Edit</th>
               <th>Your Comment</th>
             </tr>
           </tfoot>
