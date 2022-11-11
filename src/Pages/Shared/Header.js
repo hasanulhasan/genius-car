@@ -2,6 +2,9 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { useEffect } from 'react'
+import { themeChange } from 'theme-change'
+
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -12,9 +15,16 @@ const Header = () => {
       .catch(e => console.error(e))
   }
 
+  useEffect(() => {
+    themeChange(false)
+    // 👆 false parameter is required for react project
+  }, [])
+
   const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
     <li className='font-semibold'><Link to='/'>Blog</Link></li>
+    <li><button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"></button></li>
+
     {
       user?.email ?
         <>
