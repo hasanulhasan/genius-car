@@ -79,4 +79,4 @@ const Header = () => {
   );
 };
 
-export default Header; <p>Header</p>
+export default Header;
