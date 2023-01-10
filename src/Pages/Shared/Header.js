@@ -23,7 +23,7 @@ const Header = () => {
   const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
     <li className='font-semibold'><Link to='/'>Blog</Link></li>
-    <li><button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"></button></li>
+    <li><button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">Theam</button></li>
 
     {
       user?.email ?

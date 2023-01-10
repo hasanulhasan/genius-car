@@ -9,7 +9,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`https://genius-car-server-pi-one.vercel.app/orders?email=${user?.email}`)
+    fetch(`http://localhost:5000/orders?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setOrders(data))
   }, [user?.email])
@@ -17,7 +17,7 @@ const Orders = () => {
   const handleDelete = id => {
     const proceed = window.confirm('are you sure to delete this item');
     if (proceed) {
-      fetch(`https://genius-car-server-pi-one.vercel.app/orders/${id}`, {
+      fetch(`http://localhost:5000/orders/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -33,7 +33,7 @@ const Orders = () => {
   }
 
   const handleEdit = (id) => {
-    fetch(`https://genius-car-server-pi-one.vercel.app/orders/${id}`, {
+    fetch(`http://localhost:5000/orders/${id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application.json'
