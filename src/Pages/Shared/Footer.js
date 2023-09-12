@@ -3,9 +3,9 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-28 bg-base-200 text-base-content">
+      <footer className="footer p-28 bg-base-200 text-base-content print:hidden">
         <div>
-          <img width="70" height="60" viewBox="0 0 24 24" src='https://cdn-icons-png.flaticon.com/512/744/744465.png'></img>
+          <img width="70" height="60" viewBox="0 0 24 24" src='https://cdn-icons-png.flaticon.com/512/744/744465.png' alt='logo'></img>
           <p>Genius Car<br />Edwin Diaz is a software and web <br />technologies engineer, a life coach<br /> trainer who is also a serial .<br /><br />
             Popular car brand since 1992</p>
         </div>

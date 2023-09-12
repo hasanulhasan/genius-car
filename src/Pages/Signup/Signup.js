@@ -5,12 +5,14 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Signup = () => {
   const { createUser } = useContext(AuthContext)
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
+    // const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+
     form.reset();
     createUser(email, password)
       .then(result => {
@@ -19,6 +21,7 @@ const Signup = () => {
       })
       .then(e => console.error(e))
   }
+
   return (
     <div className="hero w-full my-20">
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
