@@ -6,6 +6,8 @@ import Login from "../Pages/Login/Login";
 import Orders from "../Pages/Orders/Orders";
 import Signup from "../Pages/Signup/Signup";
 import PaymentSuccess from "../Pages/CheckOut/PaymentSuccess";
+import BkashError from "../Pages/CheckOut/BkashError";
+import BkashSuccess from "../Pages/CheckOut/BkashSuccess";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -28,9 +30,17 @@ const router = createBrowserRouter([
         element: <Orders></Orders>
       },
       {
+        path: 'error',
+        element: <BkashError></BkashError>
+      },
+      {
+        path: 'success',
+        element: <BkashSuccess></BkashSuccess>
+      },
+      {
         path: 'checkout/:id',
         element: <CheckOut></CheckOut>,
-        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+        loader: ({ params }) => fetch(`https://genius-car-server-pi-one.vercel.app/services/${params.id}`)
       },
       {
         path: 'payment/success',

@@ -9,7 +9,7 @@ const PaymentSuccess = () => {
   const orderTime = order?.paidAt
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/by-transaction-id/${transactionId}`)
+    fetch(`https://genius-car-server-pi-one.vercel.app/orders/by-transaction-id/${transactionId}`)
     .then(res=> res.json())
     .then(data=> setOrder(data))
   }

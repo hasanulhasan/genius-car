@@ -23,7 +23,7 @@ const Header = () => {
   const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
     <li className='font-semibold'><Link to='/'>Blog</Link></li>
-    <li><button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">Theam</button></li>
+    <li><button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">Theme</button></li>
 
     {
       user?.email ?
@@ -62,7 +62,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to='/' className="btn btn-ghost normal-case text-xl">
-            <img width="45" height="35" viewBox="0 0 24 24" src='https://cdn-icons-png.flaticon.com/512/744/744465.png'></img>
+            <img width="45" height="35" viewBox="0 0 24 24" src='https://cdn-icons-png.flaticon.com/512/744/744465.png' alt='icon'></img>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -82,7 +82,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-outline btn-warning">Appointment</button>
+          <button className="btn btn-outline btn-warning">Service</button>
         </div>
       </div>
     </div>
